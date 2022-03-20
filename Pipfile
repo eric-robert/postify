@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 jupyterlab = "*"
+numpy = "*"
+opencv-python = "*"
+matplotlib = "*"
+postify = {path = "./dist/postify-0.0.1.tar.gz"}
 
 [dev-packages]
 
