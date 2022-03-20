@@ -1,12 +1,16 @@
 # Example Postify Usage
 
+Install from pip
+```
+pip install postify
+```
+
+## Demo of usage on map.png
 
 ```python
 # Imports
 import postify
 ```
-
-## Demo of usage on map.png
 
 
 ```python
