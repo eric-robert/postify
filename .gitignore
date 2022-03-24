@@ -3,3 +3,5 @@ dist
 workspace
 build
 src/postify.egg-info
+src/testing.ipynb
+src/.ipynb_checkpoints
