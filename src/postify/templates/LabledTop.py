@@ -2,7 +2,6 @@ from .. import Color, Cache, Border, Line, Text
 
 def LabledTop ( text_large = "", text_small_1 = "", text_small_2 = "" ):
 
-
     Border.Rounded(radius=0.01, color=Color.white)
 
     Border.Head(size=0.22, color=Color.white, resize=True)

@@ -4,6 +4,7 @@ from . import Cache
 
 def local_file ( path ):
     _ = cv2.imread(path)
+    _ = cv2.cvtColor(_, cv2.COLOR_BGR2RGB)
     Cache.set_last_img(_)
     return _
 
