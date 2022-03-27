@@ -8,3 +8,6 @@ from . import Template
 from . import Text
 from . import Procedure
 from . import Effects
+from . import Crop
+from . import Pipeline
+from . import Scale

@@ -12,7 +12,7 @@ def AproxBox ( poster = None, box_density = 0.005, background = (0,0,0), callbac
     # Get pixels for even borders
     total_pix = poster.shape[0] * poster.shape[1]
     lines = int(total_pix * box_density)
-    callback_number = lines // callback_count
+    callback_number = lines // (callback_count )
 
     # Create canvas
     new_poster = np.zeros((poster.shape[0], poster.shape[1], 3))
@@ -23,10 +23,11 @@ def AproxBox ( poster = None, box_density = 0.005, background = (0,0,0), callbac
         print("\rCreating AproxBox: {}%".format(round(i/lines*100, 2)), end="\r")
 
         if i % callback_number == 0:
-            if callback is not None:
-                Cache.set_last_img(new_poster)
-                callback()
-                new_poster = Cache.get_last_img()
+            if i/lines < 0.9:
+                if callback is not None:
+                    Cache.set_last_img(new_poster)
+                    callback()
+                    new_poster = Cache.get_last_img()
                 
         left = 1 - (i / lines)
         if (high_detail):

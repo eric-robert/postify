@@ -2,6 +2,8 @@ import numpy as np
 import cv2
 from . import Cache
 from . import Convert
+from . import To
+from . import Effects
 
 def _with_borders ( poster = None, left = 0, right = 0, top = 0, bottom = 0, color = (0,255,0), resize = True):
     
@@ -89,3 +91,21 @@ def Rounded( poster = None, radius = 0.1, color = (0,255,0)):
 
     poster[_all] = new_image[_all]
     
+
+def Blurred( poster = None, size = 0.1, intensity = 0.1):
+
+    if poster is None:
+        poster = Cache.get_last_img()
+    original_img = np.copy(poster)
+    
+    Even(size=size, color = (123,123,123))
+    bordered = Cache.get_last_img()
+
+    Cache.set_last_img(original_img)
+    Effects.blur(size=intensity)
+    blur = Cache.get_last_img()
+
+    where = bordered[:,:,0]==123
+    original_img[where] = blur[where]
+
+    Cache.set_last_img(original_img)
