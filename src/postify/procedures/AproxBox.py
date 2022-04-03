@@ -5,6 +5,8 @@ import cv2, math
 
 def AproxBox ( poster = None, box_density = 0.005, background = (0,0,0), callback_count = 6, callback = None, high_detail = False):
 
+    print("")
+    
     # Get poster
     if poster is None:
         poster = Cache.get_last_img()

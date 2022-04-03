@@ -100,4 +100,22 @@ def Smart (poster = None, tolerance = 0.40, margin = 0.05) :
     Cache.set_last_img(new_poster)
 
 
+def Edges (poster = None, ratio = 1):
+    if poster is None:
+        poster = Cache.get_last_img()
+        
+    # Get the dimensions of the image
+    height, width, _ = poster.shape
 
+    target_width = math.floor(width * ratio)
+    half_border = math.floor((width-target_width) / 2)
+
+    # Create a new image with the same dimensions as the original
+    new_poster = np.zeros((height, target_width, 3), np.uint8)
+    new_poster[:,:] = (0, 0, 0)
+
+    # Copy the original image into the new image
+    new_poster[:,:] = poster[:,half_border:half_border+target_width]
+
+    # Save
+    Cache.set_last_img(new_poster)

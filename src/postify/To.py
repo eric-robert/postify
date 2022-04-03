@@ -22,3 +22,11 @@ def notebook ( poster = None, size = 5):
     plt.figure(figsize=(size, size), dpi=80)
     plt.imshow(poster/255, interpolation='nearest')
     plt.show()
+
+def stats ( poster = None ):
+
+    if poster is None:
+        poster = Cache.get_last_img()
+
+    print("Poster shape:", poster.shape)
+    print(f"Ratio: {poster.shape[1]/poster.shape[0]}")

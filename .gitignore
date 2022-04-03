@@ -4,5 +4,8 @@ workspace
 build
 src/postify.egg-info
 src/testing.ipynb
+src/animals.ipynb
+src/_map-simple-bw.ipynb
 src/.ipynb_checkpoints
 saves
+TODO.md
